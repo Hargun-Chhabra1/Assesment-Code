@@ -5,7 +5,7 @@ from tkinter import messagebox
 
 
 
-#*In this version of the code I have added a frame to add more organization to my program
+#*In this version of the code I have improved the aesthetics of my program by adding a border to the frame and adding background colors to make it look it better.
 
 
 #*This is the list that is going to be used in the first dropdown box
@@ -63,6 +63,7 @@ cent_city_prt = [
     "Mount Roskill/Hillsbrough",
     'St Lukes',
 ]
+
 #*This function will make it so that user will get different results for the second drop box, in terms of what they choose from the first
 def pick_suburb(e):
     if dp_1.get() == "Central Auckland":
@@ -89,7 +90,7 @@ def pick_suburb(e):
             dp_2.config(value = ["Select Suburb"])
             dp_2.current(0)
 
-def show_place():#*this is the function that will determine how the messagebox will show up in terms of what is picked from the second drop box or if nothing is selected from the first drop box
+def show_place():#*this is the function that will determine how the messagebox will show up in terms of what is picked from the second drop box or if nothing is selected from the first drop box 
     if dp_1.get() == "Select Area":
         messagebox.showinfo(title = "Locations To Study", message = "Pick a Area")
 
@@ -163,23 +164,24 @@ def show_place():#*this is the function that will determine how the messagebox w
 window = tk.Tk()#*The code to generate a window
 window.state("zoomed")#*This code makes the GUI page full-screen 
 window.title("Place Survey")#*This code sets the windows title
+window.configure(bg = "#E3F6F5")
 
-
-inner_frame = tk.Frame(window, width = 1000, height = 550, bg = "#FFFFFE")
+inner_frame = tk.Frame(window, width = 1000, height = 550, bg = "#FFFFFE", highlightbackground = "#272343", highlightthickness = 2)
 inner_frame.place(relx = 0.5, rely = 0.57, anchor = CENTER)
 
 #*This is the code for the header
-label = tk.Label(window, text = "PLACE SURVEY", font = ("Arial", 60))
+label = tk.Label(window, text = "PLACE SURVEY", font = ("Arial", 60, "bold"))
 label.pack(padx = 20, pady = 20)
-
+label.configure(bg = "#E3F6F5", fg = "#272343")
 
 #*This is the text to ask the first question
 text_1 = tk.Label(window, text = "What Part Of Auckland Do You Live In", font = ("Arial", 30))
 text_1.pack(padx = 20, pady = 20)
-text_1.configure(bg = "#FFFFFE")
+text_1.configure(bg = "#FFFFFE", fg = "#272343")
 
 #*This is the first drop box to ask users what part of auckland they live in
 dp_1 = ttk.Combobox(window, values = city_prt, state = "readonly", font = ("Arial", 20))
+dp_1.config(background = "#272343")
 dp_1.current(0)
 dp_1.pack(pady = 40)
 dp_1.bind("<<ComboboxSelected>>", pick_suburb)
@@ -187,7 +189,7 @@ dp_1.bind("<<ComboboxSelected>>", pick_suburb)
 #*This is the text on top of the second drop down box to display the question on top of it
 text_2 = tk.Label(window, text = "Which Suburb In Auckland Do You Live In Or Near", font = ("Arial", 30))
 text_2.pack(padx = 20, pady = 20)
-text_2.configure(bg = "#FFFFFE")
+text_2.configure(bg = "#FFFFFE", fg = "#272343")
 
 #*This is the second drop box to ask users what suburb in auckland they live in
 dp_2 =ttk.Combobox(window, values = ["Select Suburb"], state = "readonly", font = ("Arial", 20))
@@ -201,5 +203,3 @@ btn.pack(padx = 20, pady = 20)
 
 
 window.mainloop()
-
-#TODO: In the next version, try to add a border around the frame to separate the main components from the title and make the title bold to show more prominence. Add more background color too improve in aesthetics
