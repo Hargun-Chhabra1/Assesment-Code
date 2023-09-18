@@ -5,7 +5,7 @@ from tkinter import messagebox
 
 
 
-#*In this version of the code I have created the comboboxes and messages that are going to be displayed to each user in terms of what they select
+#*In this version of the code I have added a frame to add more organization to my program
 
 
 #*This is the list that is going to be used in the first dropdown box
@@ -164,13 +164,19 @@ window = tk.Tk()#*The code to generate a window
 window.state("zoomed")#*This code makes the GUI page full-screen 
 window.title("Place Survey")#*This code sets the windows title
 
+
+inner_frame = tk.Frame(window, width = 1000, height = 550, bg = "#FFFFFE")
+inner_frame.place(relx = 0.5, rely = 0.57, anchor = CENTER)
+
 #*This is the code for the header
 label = tk.Label(window, text = "PLACE SURVEY", font = ("Arial", 60))
 label.pack(padx = 20, pady = 20)
 
-#*This is the text on top of the first drop down box to display the question on top of it
+
+#*This is the text to ask the first question
 text_1 = tk.Label(window, text = "What Part Of Auckland Do You Live In", font = ("Arial", 30))
 text_1.pack(padx = 20, pady = 20)
+text_1.configure(bg = "#FFFFFE")
 
 #*This is the first drop box to ask users what part of auckland they live in
 dp_1 = ttk.Combobox(window, values = city_prt, state = "readonly", font = ("Arial", 20))
@@ -181,6 +187,7 @@ dp_1.bind("<<ComboboxSelected>>", pick_suburb)
 #*This is the text on top of the second drop down box to display the question on top of it
 text_2 = tk.Label(window, text = "Which Suburb In Auckland Do You Live In Or Near", font = ("Arial", 30))
 text_2.pack(padx = 20, pady = 20)
+text_2.configure(bg = "#FFFFFE")
 
 #*This is the second drop box to ask users what suburb in auckland they live in
 dp_2 =ttk.Combobox(window, values = ["Select Suburb"], state = "readonly", font = ("Arial", 20))
@@ -194,4 +201,5 @@ btn.pack(padx = 20, pady = 20)
 
 
 window.mainloop()
-#TODO: Add a frame to the centre of the GUI to separate the main function from the rest of the program
+
+#TODO: In the next version, try to add a border around the frame to separate the main components from the title and make the title bold to show more prominence. Add more background color too improve in aesthetics
