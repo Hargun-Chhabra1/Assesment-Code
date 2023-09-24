@@ -92,10 +92,10 @@ def pick_suburb(e):
 
 def show_place():#*this is the function that will determine how the messagebox will show up in terms of what is picked from the second drop box or if nothing is selected from the first drop box 
     if dp_1.get() == "Select Area":
-        messagebox.showinfo(title = "Locations To Study", message = "Pick a Area")
+        messagebox.showinfo(title = "ERROR!", message = "Pick a Area")
 
     if dp_2.get() == "Select Suburb":
-        messagebox.showinfo(title = "Locations To Study", message = "Pick A Suburb")
+        messagebox.showinfo(title = "ERROR!", message = "Pick A Suburb")
 
     if dp_2.get() == "Albany":
         messagebox.showinfo(title = "Locations To Study", message = "Columbus Coffee:"+"\n"+"Address: 219 Don Mckinnon Drive Westfield, Albany, Auckland 0632"+"\n"+"Phone: 09 441 6475"+"\n"+"\n"+"Scholars Cafe:"+"\n"+"Address: Massey University Gate 1, next to Recreation Centre, Albany Expressway, Albany, Auckland 0632"+"\n"+"Phone: 09 415 6485"+"\n"+"\n"+"The Coffee Club Albany:"+"\n"+"Address: Shop S265B, Shop S265B/219 Don McKinnon Drive, Albany, Auckland 0632"+"\n"+"Phone: 09 443 2763")
